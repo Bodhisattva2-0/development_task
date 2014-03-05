@@ -1,0 +1,12 @@
+<h1> Create a new charge </h1>
+<%= form_for @charge do |f| %>
+  <fieldset>
+	<%= f.label :customer %>
+	<%= f.select :customer_id, options_for_select(@customers.map(&:name).zip(@customers.map(&:id)))%>
+	<%= f.label :amount %>
+	<%= f.text_field :amount %>
+	<%= f.label :currency %>
+	<%= f.select :currency ,options_for_select(Charge::CURRENCIES)%>
+  </fieldset>
+  <%= f.submit  :class => "btn btn-primary" %>
+<% end %>

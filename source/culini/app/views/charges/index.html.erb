@@ -1,0 +1,35 @@
+<%= link_to "New charge", new_charge_path %>
+
+<h1 class="charge-list-header">Failed charges</h1>
+<table class="table charge-table">
+  <%  @failed_charges.each do |charge|  %>
+    <tr class="failed-charge-item">
+      <td><%= charge.customer.name  %></td>
+      <td><%= charge.amount %></td>
+      <td><%= charge.created_at .strftime("%m/%d/%Y") %></td>
+      </tr>
+  <% end %>
+  </table>
+<h1 class="charge-list-header">Disputed charges</h1>
+<table class="table charge-table">
+  <%  @disputed_charges.each do |charge|  %>
+    <tr class="disputed-charge-item">
+      <td><%= charge.customer.name  %></td>
+      <td><%= charge.amount %></td>
+      <td><%= charge.created_at.strftime("%m/%d/%Y")  %></td>
+      </tr>
+  <% end %>
+  </table>
+
+<h1 class="charge-list-header">Successful charges</h1>
+<table class="table charge-table">
+  <%  @successful_charges.each do |charge|  %>
+    <tr class="successful-charge-item">
+      <td><%= charge.customer.name  %></td>
+      <td><%= charge.amount %></td>
+      <td><%= charge.created_at .strftime("%m/%d/%Y") %></td>
+      </tr>
+  <% end %>
+  </table>
+
+
